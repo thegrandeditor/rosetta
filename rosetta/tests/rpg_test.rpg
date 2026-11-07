@@ -1,0 +1,10 @@
+     H/COPY QRPGLESRC,HSPEC
+     FMYFILE    IF   E           K DISK
+     D Name            S             20A
+     D Count           S              5I 0
+     C     *IN01         IFEQ      *ON
+     C                   ADD       1             Count
+     C                   MOVEL     'HELLO'       Name
+     C                   ENDIF
+     C     Name          DSPLY
+     C                   SETON                                        LR

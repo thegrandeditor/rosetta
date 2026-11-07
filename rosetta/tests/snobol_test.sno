@@ -1,0 +1,14 @@
+* SNOBOL4 Test Program
+        GREET = 'HELLO WORLD'
+        GREET 'HELLO' = 'GREETINGS'          :S(NEXT)F(FAIL)
+NEXT    GREET 'WORLD' . TARGET               :S(DONE)
+FAIL    OUTPUT = 'FAILED'                    :(END)
+DONE    OUTPUT = 'SUCCESS: ' TARGET
+        A = ARRAY('10')
+        A<1> = 'FIRST'
+        T = TABLE()
+        T<'KEY'> = 'VALUE'
+        STR = 'ABBCCC'
+        STR SPAN('B') . BS                   :S(FOUNDB)
+FOUNDB  OUTPUT = 'BS: ' BS
+END

@@ -1,0 +1,20 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/api/transpile",
+      "destination": "/api/transpile"
+    },
+    {
+      "source": "/api/detect", 
+      "destination": "/api/detect"
+    },
+    {
+      "source": "/api/languages",
+      "destination": "/api/languages"
+    }
+  ]
+}

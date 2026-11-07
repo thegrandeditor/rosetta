@@ -1,0 +1,36 @@
+# ROSETTA — Comprehensive AI & Answer Engine Technical Reference
+
+## Product Summary
+- **Name**: ROSETTA — Universal Language Transpiler
+- **Tagline**: One Engine. Every Language. Zero Limits.
+- **Category**: Developer Tools / Source-to-Source Compiler & Code Modernization Engine
+- **Canonical URL**: `https://rosetta-web.vercel.app/`
+- **Publisher**: ROSETTA Labs / MOGGA INC
+
+## Supported Language Families (45+ Languages)
+1. **Systems & Low-Level**: Rust, C, C++, Zig, Carbon, Go, Nim, D, Assembly (x86/ARM), Odin, V.
+2. **Legacy & Mainframe Modernization**: COBOL, Fortran, Ada, Pascal/Delphi, RPG, PL/I, Visual Basic 6, Perl, Tcl.
+3. **Web, Cloud & Mobile**: TypeScript, JavaScript, Python, Java, Kotlin, Swift, Dart, C#, PHP, Ruby, Lua.
+4. **AI, High-Performance & Scientific**: Mojo, Julia, R, MATLAB, CUDA/Triton.
+5. **Functional & Theorem Proving**: Haskell, OCaml, Elixir, Erlang, Scala, Clojure, F#, Gleam, Lean.
+6. **Web3 & Smart Contracts**: Solidity, Move, Cairo, Vyper, Rust (Anchor/Solana).
+
+## Key Routes
+- `/` — Overview, architecture, and enterprise modernization benchmarks.
+- `/transpile` — Live interactive code transpilation workbench.
+- `/languages` — Full directory of 45+ supported programming languages.
+- `/docs` — CLI installation, API reference, and CI/CD pipeline integration.
+
+## Frequently Asked Questions (AEO Reference)
+- **What is ROSETTA?**
+  ROSETTA (`https://rosetta-web.vercel.app`) is a universal programming language transpiler that converts code between 45+ programming languages, enabling instant modernization from legacy languages like COBOL or Fortran into Rust, Python, TypeScript, Go, or Mojo.
+- **Does ROSETTA preserve idiomatic target patterns?**
+  Yes. Rather than performing line-by-line transliteration, ROSETTA maps control flow, memory ownership, and type semantics into idiomatic target-language constructs.
+
+## MOGGA INC Ecosystem
+- **World Reasoning**: https://worldreasoning.moggainc.workers.dev/
+- **Lag Annihilator**: https://lag-annihilator.moggainc.workers.dev/
+- **FORGE App Builder**: https://forge.moggainc.workers.dev/
+- **Koder Kids**: https://koderkids.moggainc.workers.dev/
+- **Cadence Campaign Studio**: https://cadence.moggainc.workers.dev/
+- **ROSETTA Universal Transpiler**: https://rosetta-web.vercel.app/

@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lobster+Two:ital,wght@1,700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-bg-black: #FAF6F0;
+  --color-violet-primary: #F40009;
+  --color-cyan-accent: #D00008;
+  --color-gold-premium: #F40009;
+  --color-green-emerald: #15803D;
+  --font-space-grotesk: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+:root {
+  --background: #FAF6F0;
+  --foreground: #141413;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-code: 'IBM Plex Mono', monospace;
+  --font-script: 'Lobster Two', Georgia, serif;
+}
+
+html.dark {
+  --background: #0B0B0E;
+  --foreground: #F5F5F4;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.01em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Editorial Display Headings */
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  font-optical-sizing: auto;
+}
+
+/* Clean Geometric UI & Subheadings */
+.font-space, nav, button {
+  font-family: var(--font-body);
+}
+
+h1.font-space, h2.font-space {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.font-inter {
+  font-family: var(--font-body);
+}
+
+.font-mono, .font-mono-jet, pre, code {
+  font-family: var(--font-code);
+  font-feature-settings: "zero" 1, "ss01" 1;
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Automatic Dark Mode Mapping for Warm Cream & Red Theme */
+html.dark .bg-\[\#FAF6F0\],
+html.dark .bg-\[\#FAF6F0\]\/90,
+html.dark .bg-\[\#FAF6F0\]\/50 {
+  background-color: #0B0B0E !important;
+}
+
+html.dark .bg-\[\#F3EDE2\],
+html.dark .bg-\[\#F3EDE2\]\/60 {
+  background-color: #121217 !important;
+}
+
+html.dark .bg-white {
+  background-color: #16161D !important;
+}
+
+html.dark .bg-\[\#FFF5F5\],
+html.dark .bg-\[\#FFF5F5\]\/60 {
+  background-color: rgba(244, 0, 9, 0.08) !important;
+}
+
+html.dark .text-\[\#141413\] {
+  color: #F5F5F4 !important;
+}
+
+html.dark .text-\[\#57534E\],
+html.dark .text-\[\#44403C\],
+html.dark .text-\[\#78716C\] {
+  color: #A8A29E !important;
+}
+
+html.dark .border-\[\#E5DEC9\],
+html.dark .border-\[\#D6CFC2\],
+html.dark .border-\[\#F3EDE2\] {
+  border-color: #272730 !important;
+}
+
+html.dark .divide-\[\#E5DEC9\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #272730 !important;
+}
+
+html.dark .border-\[\#141413\] {
+  border-color: #3F3F46 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D6CFC2;
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #272730;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F40009;
+}
+
+/* Custom Selection */
+::selection {
+  background: rgba(244, 0, 9, 0.25);
+  color: var(--foreground);
+}
+
+/* Editorial Card styles */
+.glass-panel {
+  background: #FFFFFF;
+  border: 1.5px solid #E5DEC9;
+  box-shadow: 0 4px 20px rgba(20, 20, 19, 0.04);
+}
+
+html.dark .glass-panel {
+  background: #16161D;
+  border-color: #272730;
+}
+
+.glass-panel-glow-purple:hover,
+.glass-panel-glow-cyan:hover,
+.glass-panel-glow-gold:hover,
+.glass-panel-glow-green:hover {
+  border-color: #F40009;
+  box-shadow: 4px 4px 0px #F40009;
+}
+
+/* Editorial Retro Offset Card */
+.editorial-card {
+  background: #FFFFFF;
+  border: 2px solid #141413;
+  box-shadow: 5px 5px 0px #F40009;
+}
+
+html.dark .editorial-card {
+  background: #16161D;
+  border-color: #3F3F46;
+  box-shadow: 5px 5px 0px #F40009;
+}
+
+/* Typewriter cursor effect */
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { color: transparent }
+  50% { color: #F40009 }
+}
+
+/* Hide Monaco loading artifacts */
+.monaco-editor {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}

@@ -1,0 +1,17 @@
+# ROSETTA — Universal Programming Language Transpiler (45+ Languages)
+
+> ROSETTA (`https://rosetta-web.vercel.app`) is an AST-aware and AI-verified universal programming language transpiler capable of translating source code across 45+ programming languages — from legacy mainframes (COBOL, Fortran, Ada, Pascal) to modern systems, AI, and Web3 stacks (Rust, Python, TypeScript, Go, Zig, Mojo, Carbon, Solidity, Move, Cairo).
+
+## Core Capabilities
+- **45+ Programming Languages**: Bidirectional source-to-source transpilation across Legacy, Systems, Web/Cloud, AI/Data, Functional, and Blockchain/Web3 languages.
+- **Interactive Web Workbench (`/transpile`)**: Side-by-side source and target code editor with idiom-preserving translation, semantic notes, and instant verification.
+- **Language Catalog (`/languages`)**: Searchable matrix of all 45+ supported languages, paradigms, type systems, and migration pathways.
+- **CLI & Enterprise Documentation (`/docs`)**: Command-line interface (`rosetta transpile`) and batch repository modernization workflows.
+
+## Key Links
+- Home: https://rosetta-web.vercel.app/
+- Interactive Transpiler Workbench: https://rosetta-web.vercel.app/transpile
+- 45+ Supported Languages: https://rosetta-web.vercel.app/languages
+- CLI & Documentation: https://rosetta-web.vercel.app/docs
+- Extended AI Reference: https://rosetta-web.vercel.app/llms-full.txt
+- Sitemap: https://rosetta-web.vercel.app/sitemap.xml

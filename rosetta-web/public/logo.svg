@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 90" fill="none">
+  <text
+    x="140"
+    y="58"
+    text-anchor="middle"
+    fill="#F40009"
+    font-family="'Lobster Two', 'Brush Script MT', Georgia, serif"
+    font-style="italic"
+    font-weight="700"
+    font-size="58"
+  >
+    Rosetta
+  </text>
+  <path
+    d="M 28 74 C 95 54, 185 88, 254 64 C 188 82, 98 62, 34 79 Z"
+    fill="#F40009"
+  />
+</svg>

@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+rosetta-web/node_modules/
+rosetta-web/.next/
+rosetta-web/.vercel/
+.git/
+scratch/
+*.jar

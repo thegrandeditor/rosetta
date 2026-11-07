@@ -1,0 +1,18 @@
+import React, { Suspense } from "react";
+import TranspileClient from "@/components/sections/TranspileClient";
+
+export const unstable_instant = false;
+
+export default function TranspilePage() {
+  return (
+    <Suspense 
+      fallback={
+        <div className="min-h-screen bg-[#FAF6F0] text-[#141413] flex items-center justify-center font-mono text-xs">
+          &gt; INITIALIZING ROSETTA TRANSPILATION WORKSPACE...
+        </div>
+      }
+    >
+      <TranspileClient />
+    </Suspense>
+  );
+}
