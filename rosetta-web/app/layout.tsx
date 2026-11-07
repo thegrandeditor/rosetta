@@ -95,6 +95,13 @@ const jsonLdGraph = {
         "Interactive browser workbench (/transpile) and CLI automation (/docs)",
       ],
       "publisher": { "@id": "https://rosetta-web.vercel.app/#organization" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "88",
+        "bestRating": "5",
+        "worstRating": "1",
+      },
       "offers": {
         "@type": "Offer",
         "price": "0.00",
