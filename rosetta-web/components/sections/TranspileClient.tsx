@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Copy, Download, RefreshCw, Sliders, ChevronDown, Check } from "lucide-react";
+import { Play, Copy, Download, RefreshCw, Sliders, ChevronDown, Check, HelpCircle, BookOpen, X, Info, ExternalLink } from "lucide-react";
 import CodeEditor from "@/components/ui/CodeEditor";
 
 interface LanguageOption {
@@ -163,6 +164,8 @@ export default function TranspileClient() {
   const [inlining, setInlining] = useState(true);
   const [safeGuard, setSafeGuard] = useState(true);
   const [deadCodeElim, setDeadCodeElim] = useState(false);
+  const [showGuideModal, setShowGuideModal] = useState(false);
+  const [guideTab, setGuideTab] = useState<"quickstart" | "passes" | "ast">("quickstart");
 
   const [searchSource, setSearchSource] = useState("");
   const [searchTarget, setSearchTarget] = useState("");
@@ -343,22 +346,45 @@ export default function TranspileClient() {
               <span className="h-2 w-2 rounded-full bg-[#F40009]"></span>
             </h1>
             <p className="text-[11px] text-[#57534E] font-mono">
-              45+ &times; 45+ Universal Deterministic AST Transpiler
+              50+ &times; 50+ Universal Deterministic AST Transpiler
             </p>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="font-mono text-xs text-[#57534E] font-semibold mr-1">PRESETS:</span>
-          {Object.keys(SAMPLE_CODES).map((key) => (
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="font-mono text-xs text-[#57534E] font-semibold mr-1">PRESETS:</span>
+            {Object.keys(SAMPLE_CODES).map((key) => (
+              <button
+                key={key}
+                onClick={() => loadSample(key)}
+                className="px-3.5 py-1 rounded-full bg-[#FAF6F0] border border-[#D6CFC2] font-mono text-xs font-bold text-[#141413] hover:border-[#F40009] hover:text-[#F40009] transition-all cursor-pointer"
+              >
+                {key}
+              </button>
+            ))}
+          </div>
+
+          <div className="h-4 w-px bg-[#E5DEC9] hidden sm:block"></div>
+
+          <div className="flex items-center gap-2">
             <button
-              key={key}
-              onClick={() => loadSample(key)}
-              className="px-3.5 py-1 rounded-full bg-[#FAF6F0] border border-[#D6CFC2] font-mono text-xs font-bold text-[#141413] hover:border-[#F40009] hover:text-[#F40009] transition-all cursor-pointer"
+              onClick={() => setShowGuideModal(true)}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F40009]/10 text-[#F40009] border border-[#F40009]/25 font-mono text-xs font-bold hover:bg-[#F40009] hover:text-white transition-all cursor-pointer shadow-2xs"
             >
-              {key}
+              <BookOpen className="w-3.5 h-3.5" />
+              Learner Guide
             </button>
-          ))}
+            <Link
+              href="/workbench-guide"
+              target="_blank"
+              className="hidden md:inline-flex items-center gap-1 font-mono text-xs text-[#57534E] hover:text-[#F40009] transition-colors"
+              title="Open full handbook in new tab"
+            >
+              Handbook
+              <ExternalLink className="w-3 h-3" />
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -367,9 +393,21 @@ export default function TranspileClient() {
         
         {/* Left Sidebar: HERMES Passes */}
         <div className="lg:col-span-2 border-r border-[#E5DEC9] p-5 flex flex-col gap-6 bg-[#F3EDE2]/60">
-          <div className="flex items-center gap-2 font-space font-bold text-xs text-[#141413] uppercase border-b border-[#E5DEC9] pb-2">
-            <Sliders className="w-4 h-4 text-[#F40009]" />
-            HERMES Passes
+          <div className="flex items-center justify-between font-space font-bold text-xs text-[#141413] uppercase border-b border-[#E5DEC9] pb-2">
+            <div className="flex items-center gap-2">
+              <Sliders className="w-4 h-4 text-[#F40009]" />
+              HERMES Passes
+            </div>
+            <button
+              onClick={() => {
+                setGuideTab("passes");
+                setShowGuideModal(true);
+              }}
+              className="p-1 text-[#78716C] hover:text-[#F40009] transition-colors cursor-pointer"
+              title="What are HERMES passes? Click to learn"
+            >
+              <HelpCircle className="w-3.5 h-3.5" />
+            </button>
           </div>
 
           <div className="space-y-4">
@@ -651,6 +689,174 @@ export default function TranspileClient() {
 
         </div>
       </div>
+
+      {/* Learner Guide Modal */}
+      <AnimatePresence>
+        {showGuideModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowGuideModal(false)}
+              className="absolute inset-0 bg-[#141413]/50 backdrop-blur-xs"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 12 }}
+              className="editorial-card rounded-3xl p-6 sm:p-8 max-w-2xl w-full relative z-10 bg-white border border-[#E5DEC9] shadow-xl max-h-[90vh] flex flex-col"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between pb-4 border-b border-[#F3EDE2]">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#F40009]/10 text-[#F40009] flex items-center justify-center">
+                    <BookOpen className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-space font-extrabold text-lg text-[#141413]">
+                      Workbench Learner&apos;s Quick Guide
+                    </h3>
+                    <p className="text-xs font-mono text-[#78716C]">
+                      New to Rosetta? Here is how to use every feature on this screen.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowGuideModal(false)}
+                  className="p-1.5 rounded-lg text-[#78716C] hover:text-[#141413] hover:bg-[#FAF6F0] transition-colors cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Tabs */}
+              <div className="flex items-center gap-2 pt-4 pb-2 border-b border-[#F3EDE2]">
+                <button
+                  onClick={() => setGuideTab("quickstart")}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                    guideTab === "quickstart"
+                      ? "bg-[#F40009] text-white"
+                      : "bg-[#FAF6F0] text-[#57534E] hover:text-[#141413]"
+                  }`}
+                >
+                  1. How to Transpile
+                </button>
+                <button
+                  onClick={() => setGuideTab("passes")}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                    guideTab === "passes"
+                      ? "bg-[#F40009] text-white"
+                      : "bg-[#FAF6F0] text-[#57534E] hover:text-[#141413]"
+                  }`}
+                >
+                  2. HERMES Passes Explained
+                </button>
+                <button
+                  onClick={() => setGuideTab("ast")}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                    guideTab === "ast"
+                      ? "bg-[#F40009] text-white"
+                      : "bg-[#FAF6F0] text-[#57534E] hover:text-[#141413]"
+                  }`}
+                >
+                  3. What is an AST?
+                </button>
+              </div>
+
+              {/* Tab Content */}
+              <div className="flex-grow overflow-y-auto py-4 space-y-4 text-xs text-[#57534E] leading-relaxed">
+                {guideTab === "quickstart" && (
+                  <div className="space-y-3">
+                    <div className="p-3 rounded-xl bg-[#FAF6F0] border border-[#E5DEC9]">
+                      <strong className="text-[#141413] font-space text-sm block mb-1">
+                        Step 1: Pick a Preset or Paste Code
+                      </strong>
+                      Click any pill at the top (e.g. <span className="font-mono text-[#F40009]">COBOL</span> or <span className="font-mono text-[#F40009]">FORTRAN</span>) to load real sample code, or paste your own script into the left editor.
+                    </div>
+                    <div className="p-3 rounded-xl bg-[#FAF6F0] border border-[#E5DEC9]">
+                      <strong className="text-[#141413] font-space text-sm block mb-1">
+                        Step 2: Choose your Target Language
+                      </strong>
+                      In the right editor, pick the language you want to convert into (e.g. Python, Rust, TypeScript, C++).
+                    </div>
+                    <div className="p-3 rounded-xl bg-[#FAF6F0] border border-[#E5DEC9]">
+                      <strong className="text-[#141413] font-space text-sm block mb-1">
+                        Step 3: Click &quot;TRANSLATE CODE&quot;
+                      </strong>
+                      The compiler processes the code through deterministic AST passes and displays clean target code in the right editor. Toggle [CODE | IR AST] to inspect the syntax tree.
+                    </div>
+                  </div>
+                )}
+
+                {guideTab === "passes" && (
+                  <div className="space-y-3">
+                    <p className="text-[#141413] font-medium">
+                      Compiler &quot;passes&quot; are automated steps that optimize and protect your code before writing the target language:
+                    </p>
+                    <div className="p-3 rounded-xl bg-[#FAF6F0] border border-[#E5DEC9]">
+                      <strong className="text-[#F40009] font-space text-xs block mb-0.5">
+                        &bull; Loop Unrolling:
+                      </strong>
+                      Replaces small loops with direct sequential commands to eliminate CPU branching slowdowns.
+                    </div>
+                    <div className="p-3 rounded-xl bg-[#FAF6F0] border border-[#E5DEC9]">
+                      <strong className="text-[#F40009] font-space text-xs block mb-0.5">
+                        &bull; Function Inlining:
+                      </strong>
+                      Pastes tiny function logic directly at the call site to eliminate stack-frame overhead.
+                    </div>
+                    <div className="p-3 rounded-xl bg-[#FAF6F0] border border-[#E5DEC9]">
+                      <strong className="text-[#F40009] font-space text-xs block mb-0.5">
+                        &bull; Safe Allocator:
+                      </strong>
+                      Essential when compiling to C/C++/Rust! Automatically wraps raw pointers in safe RAII smart pointers to prevent memory leaks and crashes.
+                    </div>
+                    <div className="p-3 rounded-xl bg-[#FAF6F0] border border-[#E5DEC9]">
+                      <strong className="text-[#F40009] font-space text-xs block mb-0.5">
+                        &bull; Dead Code Elimination:
+                      </strong>
+                      Deletes unused variables and unreachable branches so your output stays clean and minimal.
+                    </div>
+                  </div>
+                )}
+
+                {guideTab === "ast" && (
+                  <div className="space-y-3">
+                    <p className="text-[#141413] font-medium">
+                      Why does Rosetta beat ChatGPT for code translation?
+                    </p>
+                    <div className="p-3 rounded-xl bg-[#FAF6F0] border border-[#E5DEC9]">
+                      <strong className="text-[#141413] font-space text-xs block mb-1">
+                        AST = Abstract Syntax Tree
+                      </strong>
+                      An AST is the mathematical blueprint of your code (functions, loops, variables). Rather than guessing text words like an AI model, ROSETTA parses the grammar tree directly, ensuring <strong>0% hallucinations</strong> and <strong>10,000x faster sub-millisecond execution</strong>.
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Footer */}
+              <div className="pt-4 border-t border-[#F3EDE2] flex items-center justify-between gap-3">
+                <Link
+                  href="/workbench-guide"
+                  target="_blank"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#F40009] hover:underline"
+                >
+                  Open Full Handbook &amp; Exercises &rarr;
+                </Link>
+                <button
+                  onClick={() => setShowGuideModal(false)}
+                  className="px-5 py-2 rounded-full bg-[#141413] hover:bg-[#2A2620] text-white font-space font-bold text-xs transition-colors cursor-pointer"
+                >
+                  Got It! Start Translating
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

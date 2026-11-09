@@ -178,8 +178,14 @@ export default function RootLayout({
                   Benchmarks
                 </Link>
                 <Link 
-                  href="/docs" 
+                  href="/workbench-guide" 
                   className="font-space text-sm font-semibold text-[#F40009] hover:text-[#b80007] transition-colors"
+                >
+                  Learner Guide
+                </Link>
+                <Link 
+                  href="/docs" 
+                  className="font-space text-sm font-medium text-[#57534E] hover:text-[#141413] transition-colors"
                 >
                   CLI &amp; Docs
                 </Link>
@@ -237,6 +243,7 @@ export default function RootLayout({
             </div>
             <div className="flex items-center gap-4 flex-wrap justify-center">
               <span className="text-[#141413] font-medium">One Engine. Every Language. Zero Limits.</span>
+              <Link href="/workbench-guide" className="hover:underline text-[#F40009] font-bold">Learner&apos;s Guide</Link>
               <Link href="/benchmarks" className="hover:underline">Benchmarks</Link>
               <Link href="/faq" className="hover:underline">FAQ</Link>
               <Link href="/support" className="hover:underline">Support</Link>

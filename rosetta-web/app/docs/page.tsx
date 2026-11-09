@@ -89,6 +89,29 @@ export default function DocsPage() {
           </p>
         </div>
 
+        {/* Beginner Learner Callout Banner */}
+        <div className="mb-10 p-5 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#F40009] text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="font-space font-bold text-sm text-[#141413]">
+                New to AST Compilers or the Web Studio?
+              </div>
+              <p className="text-xs text-[#57534E] font-sans mt-0.5">
+                Read our beginner-friendly visual guide to understanding the Workbench, HERMES passes, and AST transpilation.
+              </p>
+            </div>
+          </div>
+          <Link
+            href="/workbench-guide"
+            className="shrink-0 px-4 py-2 rounded-full bg-[#141413] hover:bg-[#F40009] text-white font-space font-bold text-xs uppercase tracking-wider transition-colors shadow-xs"
+          >
+            Learner&apos;s Guide &rarr;
+          </Link>
+        </div>
+
         {/* Navigation Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 mb-10">
           {tabs.map((tab) => (
