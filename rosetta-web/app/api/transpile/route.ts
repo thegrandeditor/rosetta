@@ -8,7 +8,9 @@ export async function GET(req: NextRequest) {
   const accept = req.headers.get("accept") || "";
   // If loaded directly from a browser, redirect smoothly to the visual Workbench UI
   if (accept.includes("text/html")) {
-    return NextResponse.redirect(new URL("/transpile", req.url));
+    const host = req.headers.get("x-forwarded-host") || req.headers.get("host") || "rosettaweb.up.railway.app";
+    const proto = req.headers.get("x-forwarded-proto") || "https";
+    return NextResponse.redirect(`${proto}://${host}/transpile`);
   }
   return NextResponse.json({
     status: "online",
