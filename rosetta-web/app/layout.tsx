@@ -178,6 +178,18 @@ export default function RootLayout({
                   CLI &amp; Docs
                 </Link>
                 <Link 
+                  href="/faq" 
+                  className="font-space text-sm font-medium text-[#57534E] hover:text-[#141413] transition-colors"
+                >
+                  FAQ
+                </Link>
+                <Link 
+                  href="/support" 
+                  className="font-space text-sm font-medium text-[#57534E] hover:text-[#141413] transition-colors"
+                >
+                  Support
+                </Link>
+                <Link 
                   href="/#how-it-works" 
                   className="font-space text-sm font-medium text-[#57534E] hover:text-[#141413] transition-colors"
                 >
@@ -219,6 +231,9 @@ export default function RootLayout({
             </div>
             <div className="flex items-center gap-4 flex-wrap justify-center">
               <span className="text-[#141413] font-medium">One Engine. Every Language. Zero Limits.</span>
+              <Link href="/faq" className="hover:underline">FAQ</Link>
+              <Link href="/support" className="hover:underline">Support</Link>
+              <Link href="/docs" className="hover:underline">Docs</Link>
               <a href="/llms.txt" className="hover:underline">LLMs.txt</a>
               <a href="/sitemap.xml" className="hover:underline">Sitemap</a>
             </div>
