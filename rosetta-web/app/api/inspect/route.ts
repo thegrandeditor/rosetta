@@ -1,5 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export async function GET(req: NextRequest) {
+  const accept = req.headers.get("accept") || "";
+  if (accept.includes("text/html")) {
+    return NextResponse.redirect(new URL("/transpile", req.url));
+  }
+  return NextResponse.json({
+    status: "online",
+    service: "ROSETTA Inspect API",
+    method: "POST",
+    usage: { source: "string", from_lang: "string", to_lang: "string" },
+    ui_workbench: "/transpile"
+  });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { source, from_lang, to_lang } = await req.json();

@@ -4,6 +4,28 @@ import fs from "fs";
 import path from "path";
 import os from "os";
 
+export async function GET(req: NextRequest) {
+  const accept = req.headers.get("accept") || "";
+  // If loaded directly from a browser, redirect smoothly to the visual Workbench UI
+  if (accept.includes("text/html")) {
+    return NextResponse.redirect(new URL("/transpile", req.url));
+  }
+  return NextResponse.json({
+    status: "online",
+    service: "ROSETTA Transpile API",
+    method: "POST",
+    usage: {
+      headers: { "Content-Type": "application/json" },
+      body: {
+        source: "def greet():\n    print('hello')",
+        from_lang: ".py",
+        to_lang: "js"
+      }
+    },
+    ui_workbench: "/transpile"
+  });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { source, from_lang, to_lang } = await req.json();
