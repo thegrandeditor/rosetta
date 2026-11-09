@@ -88,6 +88,14 @@ LANGUAGE_CATALOG: List[LanguageInfo] = [
         glowColor="purple", sampleCode="PROGRAM HELLO\n    PRINT *, 'Hello, World!'\n    CALL GREET('Rosetta')\nEND PROGRAM HELLO\n\nSUBROUTINE GREET(NAME)\n    CHARACTER(LEN=*) :: NAME\n    PRINT *, 'Greetings, ', NAME\nEND SUBROUTINE GREET"
     ),
     LanguageInfo(
+        name="Visual Basic", ext=".vb", phase=3, paradigm="Event-Driven Rapid App", 
+        glowColor="purple", sampleCode="Module Program\n    Sub Main()\n        Console.WriteLine(\"Hello from Visual Basic!\")\n    End Sub\nEnd Module"
+    ),
+    LanguageInfo(
+        name="Delphi", ext=".delphi", phase=3, paradigm="Object Pascal Native", 
+        glowColor="purple", sampleCode="program HelloDelphi;\nbegin\n    Writeln('Hello from Delphi!');\nend."
+    ),
+    LanguageInfo(
         name="BASIC", ext=".bas", phase=3, paradigm="Procedural Imperative", 
         glowColor="purple", sampleCode="10 PRINT \"HELLO WORLD\"\n20 PRINT \"ROSETTA ENGINE\"\n30 END"
     ),
@@ -163,6 +171,10 @@ LANGUAGE_CATALOG: List[LanguageInfo] = [
         name="Carbon", ext=".carbon", phase=5, paradigm="C++ Evolution Systems", 
         glowColor="green", sampleCode="package Geometry api;\n\ninterface Shape {\n    fn area() -> Float {\n    }\n}\n\nclass Circle {\n    var radius: Float;\n}\n\nimpl Circle as Shape {\n    fn area() -> Float {\n        let pi: Float = 3;\n        return pi;\n    }\n}"
     ),
+    LanguageInfo(
+        name="Arduino", ext=".ino", phase=5, paradigm="Embedded Systems C++",
+        glowColor="cyan", sampleCode="void setup() {\n    Serial.begin(9600);\n    Serial.println(\"Hello from Arduino!\");\n}\n\nvoid loop() {\n}"
+    ),
 
     # Phase 6: Universal & Specialized (45 Languages Matrix)
     LanguageInfo(
@@ -200,6 +212,10 @@ LANGUAGE_CATALOG: List[LanguageInfo] = [
     LanguageInfo(
         name="Bash", ext=".sh", phase=6, paradigm="POSIX Shell / System Automation",
         glowColor="gold", sampleCode="#!/usr/bin/env bash\nset -euo pipefail\n\nNAME=\"Rosetta\"\necho \"Hello, ${NAME}!\""
+    ),
+    LanguageInfo(
+        name="PowerShell", ext=".ps1", phase=6, paradigm="Object-Oriented Scripting",
+        glowColor="cyan", sampleCode="Write-Host \"Hello, Rosetta from PowerShell!\""
     ),
     LanguageInfo(
         name="SQL", ext=".sql", phase=6, paradigm="Relational & Procedural Data",

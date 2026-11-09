@@ -117,6 +117,20 @@ const CATALOG_DETAILS: LanguageDetail[] = [
     targets: ["Python", "C++", "Mojo"]
   },
   {
+    name: "Visual Basic", ext: ".vb", phase: 3, paradigm: "Event-driven", type: "Enterprise",
+    description: "Rapid application development language widely used in Windows enterprise software, VBA macros, and client tools.",
+    strengths: ["Windows automation", "Enterprise client apps", "Rapid GUI dev"],
+    sources: ["BASIC"],
+    targets: ["C#", "Python", "JavaScript"]
+  },
+  {
+    name: "Delphi", ext: ".delphi", phase: 3, paradigm: "Object Pascal", type: "Enterprise",
+    description: "High-performance Object Pascal compiler dialect powerhouses for native Windows and multi-platform desktop suites.",
+    strengths: ["Native compilation", "VCL framework", "Strong typing"],
+    sources: ["Pascal"],
+    targets: ["C#", "C++", "Rust", "Python"]
+  },
+  {
     name: "BASIC", ext: ".bas", phase: 3, paradigm: "Procedural", type: "General",
     description: "Classic symbolic instruction code designed for straightforward procedural programming.",
     strengths: ["Simplicity", "Interactive parsing", "Minimal footprint"],
@@ -243,6 +257,13 @@ const CATALOG_DETAILS: LanguageDetail[] = [
     targets: ["C++", "Rust", "Python"]
   },
   {
+    name: "Arduino", ext: ".ino", phase: 5, paradigm: "Embedded C++", type: "Embedded",
+    description: "Physical computing and microcontroller dialect based on C/C++ with hardware I/O wiring libraries.",
+    strengths: ["Microcontroller hardware I/O", "IoT prototyping", "Vast sensor library"],
+    sources: ["C++", "C"],
+    targets: ["C++", "Rust", "Python"]
+  },
+  {
     name: "C#", ext: ".cs", phase: 6, paradigm: "Enterprise OOP", type: "General",
     description: "Modern, component-oriented language powering .NET cloud services, game development, and desktop apps.",
     strengths: ["Rich standard library", "Strong type system", "Async/await natively"],
@@ -304,6 +325,13 @@ const CATALOG_DETAILS: LanguageDetail[] = [
     strengths: ["Universal system availability", "Pipeline chaining", "Process orchestration"],
     sources: ["Python", "Perl"],
     targets: ["Python", "Go"]
+  },
+  {
+    name: "PowerShell", ext: ".ps1", phase: 6, paradigm: "Object Scripting", type: "DevOps",
+    description: "Task automation and configuration management framework with an object-oriented command-line shell.",
+    strengths: ["Object pipeline", ".NET integration", "Cross-platform admin"],
+    sources: ["Bash", "Python"],
+    targets: ["Bash", "Python", "C#"]
   },
   {
     name: "SQL", ext: ".sql", phase: 6, paradigm: "Relational / Procedural", type: "Database",
