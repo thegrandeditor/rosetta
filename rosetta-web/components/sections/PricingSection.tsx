@@ -1,10 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, Shield, Zap, Activity } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Check, Shield, Zap, Activity, RefreshCw } from "lucide-react";
 
 export default function PricingSection() {
+  const router = useRouter();
   const [isAnnual, setIsAnnual] = useState(false);
+  const [loadingTier, setLoadingTier] = useState<string | null>(null);
 
   const tiers = [
     {
@@ -15,7 +18,7 @@ export default function PricingSection() {
       features: [
         "100 translations / month",
         "Web Studio & CLI access",
-        "All 45+ languages supported",
+        "All 50+ languages supported",
         "Standard HERMES passes",
       ],
       icon: <Activity className="w-5 h-5 text-[#141413]" />,
@@ -52,11 +55,42 @@ export default function PricingSection() {
         "99.99% uptime SLA & dedicated engineer",
       ],
       icon: <Shield className="w-5 h-5 text-[#141413]" />,
-      buttonText: "View Enterprise Docs",
+      buttonText: "Deploy Enterprise",
       href: "/docs",
       featured: false,
     },
   ];
+
+  const handleAction = async (tierName: string) => {
+    if (tierName === "FREE") {
+      router.push("/transpile");
+      return;
+    }
+
+    setLoadingTier(tierName);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tier: tierName.toLowerCase(),
+          is_annual: isAnnual,
+        }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+          return;
+        }
+      }
+    } catch (e) {
+      console.error("Checkout initiation error:", e);
+    } finally {
+      setLoadingTier(null);
+    }
+  };
 
   return (
     <section id="pricing" className="py-20 bg-[#FAF6F0] border-t border-[#E5DEC9]">
@@ -145,16 +179,24 @@ export default function PricingSection() {
                   </ul>
                 </div>
 
-                <a
-                  href={tier.href}
-                  className={`w-full py-3 rounded-full text-xs font-bold text-center transition-all ${
+                <button
+                  onClick={() => handleAction(tier.name)}
+                  disabled={loadingTier !== null}
+                  className={`w-full py-3 rounded-full text-xs font-bold text-center transition-all cursor-pointer flex items-center justify-center gap-2 ${
                     tier.featured
-                      ? "bg-[#F40009] hover:bg-[#d00008] text-white"
+                      ? "bg-[#F40009] hover:bg-[#d00008] text-white shadow-sm"
                       : "bg-[#FAF6F0] hover:bg-[#E5DEC9] text-[#141413] border border-[#D6CFC2]"
                   }`}
                 >
-                  {tier.buttonText}
-                </a>
+                  {loadingTier === tier.name ? (
+                    <>
+                      <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                      Initializing Checkout...
+                    </>
+                  ) : (
+                    tier.buttonText
+                  )}
+                </button>
               </div>
             );
           })}

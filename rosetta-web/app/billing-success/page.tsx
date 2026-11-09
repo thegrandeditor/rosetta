@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ShieldCheck, Terminal, Copy, Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import confetti from "canvas-confetti";
-import ParticleField from "@/components/3d/ParticleField";
 
 function BillingSuccessContent() {
   const searchParams = useSearchParams();
@@ -86,80 +85,82 @@ function BillingSuccessContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050508] text-white pt-28 pb-16 px-4 md:px-8 relative overflow-hidden flex items-center">
-      <ParticleField />
-      
-      {/* Premium Emerald/Cyan Background Glows */}
-      <div className="absolute top-[15%] left-[20%] w-[350px] h-[350px] rounded-full bg-[#10B981]/5 blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-[20%] right-[20%] w-[450px] h-[450px] rounded-full bg-[#06B6D4]/5 blur-[150px] pointer-events-none"></div>
-
-      <div className="max-w-3xl mx-auto w-full relative z-10">
+    <div className="min-h-screen bg-[#FAF6F0] text-[#141413] pt-24 pb-16 px-4 md:px-8 relative flex items-center justify-center">
+      <div className="max-w-2xl mx-auto w-full relative z-10">
         
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="glass-panel border-white/[0.04] rounded-3xl p-8 md:p-10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] relative"
-          style={{
-            boxShadow: "0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(16, 185, 129, 0.1)",
-            border: "1px solid rgba(16, 185, 129, 0.15)"
-          }}
+          transition={{ duration: 0.5 }}
+          className="editorial-card rounded-3xl p-8 md:p-10 bg-white border-2 border-[#141413] shadow-[8px_8px_0px_#F40009] relative"
         >
           {/* Header Icon Checkmark */}
           <div className="flex flex-col items-center text-center mb-8 select-none">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
-              className="w-16 h-16 rounded-full bg-[#10B981]/15 border border-[#10B981]/30 flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+              transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+              className="w-16 h-16 rounded-2xl bg-[#F40009] text-white flex items-center justify-center mb-4 shadow-md"
             >
-              <ShieldCheck className="w-8 h-8 text-[#10B981]" />
+              <ShieldCheck className="w-8 h-8" />
             </motion.div>
             
-            <h1 className="font-space font-black text-3xl tracking-tight bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
-              Node Activated Successfully
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F40009]/10 text-[#F40009] font-mono text-xs font-bold mb-2 uppercase">
+              <CheckCircle2 className="w-3.5 h-3.5" />
+              PLAN ACTIVATED: {tier.toUpperCase()} ({cycle.toUpperCase()})
+            </div>
+
+            <h1 className="font-space font-extrabold text-3xl tracking-tight text-[#141413]">
+              Welcome to Rosetta Pro
             </h1>
-            <p className="mt-2 text-white/50 font-sans text-sm font-light">
-              Your secure compiler pipeline is active and synched with Vercel serverless.
+            <p className="mt-2 text-[#57534E] font-sans text-sm max-w-md">
+              Your high-throughput compiler pipeline is active. 10,000 translations/month and full AST optimization passes have been unlocked.
             </p>
           </div>
 
           {/* Copyable API key panel */}
-          <div className="glass-panel border-white/[0.04] bg-black/40 rounded-xl p-5 mb-8">
-            <span className="font-mono text-[9px] text-[#10B981] uppercase tracking-widest block mb-2 font-bold">
-              PRO DEVELOPER API KEY:
-            </span>
-            <div className="flex items-center justify-between gap-4 bg-white/[0.02] border border-white/5 rounded-lg px-4 py-3">
-              <code className="font-mono text-xs text-white/80 select-all select-none truncate">
+          <div className="rounded-2xl border border-[#E5DEC9] bg-[#FAF6F0] p-5 mb-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-mono text-xs text-[#141413] uppercase tracking-wider font-bold">
+                YOUR PRO DEVELOPER API KEY:
+              </span>
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#F40009]/10 text-[#F40009]">
+                ACTIVE
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between gap-3 bg-white border border-[#D6CFC2] rounded-xl px-4 py-3">
+              <code className="font-mono text-xs text-[#141413] font-bold select-all truncate">
                 {mockApiKey}
               </code>
               <button
                 onClick={handleCopy}
-                className="p-2 rounded border border-white/5 bg-white/[0.02] hover:bg-white/5 hover:border-white/15 text-white/60 hover:text-white transition-all duration-200 shrink-0"
+                className="p-2 rounded-lg border border-[#D6CFC2] bg-[#FAF6F0] hover:bg-[#F40009] hover:text-white hover:border-[#F40009] text-[#141413] transition-all cursor-pointer shrink-0"
+                title="Copy API Key"
               >
-                {copied ? <Check className="w-4 h-4 text-[#10B981]" /> : <Copy className="w-4 h-4" />}
+                {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
-            <p className="text-[10px] text-white/30 font-sans mt-2">
-              Pass this key inside your SDK or REST compiler headers as `X-Rosetta-Key`.
+            <p className="text-[11px] text-[#78716C] font-mono mt-2">
+              Pass as header: <code className="text-[#F40009]">Authorization: Bearer {mockApiKey}</code> or in CLI config.
             </p>
           </div>
 
           {/* System Activation Logs Terminal */}
-          <div className="glass-panel border-white/[0.04] bg-[#07070a]/90 rounded-2xl p-5 font-mono text-[10px] text-white/40 h-52 overflow-hidden flex flex-col mb-8 select-none">
-            <div className="flex items-center justify-between border-b border-white/[0.03] pb-2 mb-3 uppercase text-white/30 tracking-widest shrink-0">
+          <div className="rounded-2xl border border-[#141413] bg-[#141413] p-5 font-mono text-[11px] text-[#A8A29E] h-48 overflow-hidden flex flex-col mb-8 select-none">
+            <div className="flex items-center justify-between border-b border-[#2A2620] pb-2 mb-3 uppercase tracking-wider text-xs font-bold text-white shrink-0">
               <span className="flex items-center gap-2">
-                <Terminal className="w-3.5 h-3.5 text-[#10B981]" />
-                TELEMETRY DECK SIGNALS
+                <Terminal className="w-3.5 h-3.5 text-[#F40009]" />
+                ACTIVATION TELEMETRY
               </span>
-              <span className="text-[#10B981] animate-pulse">● SIGNAL_ESTABLISHED</span>
+              <span className="text-emerald-400">● VERIFIED</span>
             </div>
             
             <div className="flex-grow overflow-y-auto space-y-1.5 pr-2">
               {logs.map((log, idx) => (
                 <div key={idx} className="flex gap-2">
-                  <span className="text-white/20">[{idx.toString().padStart(3, "0")}]</span>
-                  <span className={log.includes("SUCCESS") || log.includes("established") ? "text-[#10B981]" : log.includes("LICENSE") ? "text-[#06B6D4]" : "text-white/60"}>
+                  <span className="text-[#57534E]">[{idx.toString().padStart(2, "0")}]</span>
+                  <span className={log.includes("SUCCESS") ? "text-emerald-400 font-bold" : log.includes("API_KEY") ? "text-[#F40009] font-bold" : "text-[#D6CFC2]"}>
                     {log}
                   </span>
                 </div>
@@ -169,20 +170,20 @@ function BillingSuccessContent() {
           </div>
 
           {/* Action redirects */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
             <Link
               href="/transpile"
-              className="w-full sm:w-auto h-12 px-8 rounded-xl bg-gradient-to-r from-[#10B981] to-[#06B6D4] text-white font-mono font-bold tracking-widest text-xs flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] hover:scale-[1.01] transition-all duration-300"
+              className="w-full sm:w-auto h-11 px-8 rounded-full bg-[#F40009] hover:bg-[#d00008] text-white font-space font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all"
             >
-              LAUNCH PRO WORKBENCH
+              LAUNCH WORKBENCH
               <ArrowRight className="w-4 h-4" />
             </Link>
 
             <Link
-              href="/"
-              className="w-full sm:w-auto h-12 px-8 rounded-xl border border-white/10 bg-white/[0.02] text-white/60 hover:text-white hover:bg-white/5 hover:border-white/20 font-mono text-xs flex items-center justify-center transition-all duration-300"
+              href="/docs"
+              className="w-full sm:w-auto h-11 px-6 rounded-full border border-[#D6CFC2] bg-white text-[#141413] hover:border-[#F40009] font-space font-bold text-xs uppercase tracking-wider flex items-center justify-center transition-all"
             >
-              RETURN TO CONTROL COCKPIT
+              VIEW CLI &amp; MCP DOCS
             </Link>
           </div>
 
@@ -196,7 +197,7 @@ function BillingSuccessContent() {
 export default function BillingSuccessPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-[#050508] text-white flex items-center justify-center font-mono text-xs">
+      <div className="min-h-screen bg-[#FAF6F0] text-[#141413] flex items-center justify-center font-mono text-xs">
         &gt; CONNECTING SECURE GATEWAY DATA NODE...
       </div>
     }>
