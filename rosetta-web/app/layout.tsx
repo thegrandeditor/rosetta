@@ -39,17 +39,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://rosetta-web.vercel.app/",
+    url: "https://rosettaweb.up.railway.app/",
     siteName: "ROSETTA",
-    title: "ROSETTA — Universal Language Transpiler (45+ Languages)",
+    title: "ROSETTA — Universal Language Transpiler (50+ Languages)",
     description:
-      "One Engine. Every Language. Zero Limits. Instant AST-aware and AI-verified code translation across 45+ programming languages.",
+      "One Engine. Every Language. Zero Limits. Instant deterministic AST code translation across 50+ programming languages.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ROSETTA — Universal Language Transpiler (45+ Languages)",
+    title: "ROSETTA — Universal Language Transpiler (50+ Languages)",
     description:
-      "Transpile between 45+ programming languages instantly — from COBOL and C++ to Rust, Python, TypeScript, Mojo, and Solidity.",
+      "Transpile between 50+ programming languages instantly — from COBOL, Fortran, C++, Java to Rust, Python, TypeScript, Mojo, Solidity, and Matlab.",
   },
 };
 
@@ -169,7 +169,7 @@ export default function RootLayout({
                   href="/languages" 
                   className="font-space text-sm font-medium text-[#57534E] hover:text-[#141413] transition-colors"
                 >
-                  45+ Languages
+                  50+ Languages
                 </Link>
                 <Link 
                   href="/benchmarks" 

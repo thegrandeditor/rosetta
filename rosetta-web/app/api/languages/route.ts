@@ -45,7 +45,16 @@ const FALLBACK_LANGUAGES = [
   { name: "SQL", ext: ".sql", phase: 6, paradigm: "Relational & Procedural Data", glowColor: "purple", sampleCode: "DECLARE @x INT = 42;\nPRINT @x;" },
   { name: "Objective-C", ext: ".m", phase: 6, paradigm: "Dynamic Smalltalk-style OOP", glowColor: "cyan", sampleCode: "int x = 42;\nNSLog(@\"%d\", x);" },
   { name: "Move", ext: ".move", phase: 6, paradigm: "Asset-Oriented Smart Contracts", glowColor: "green", sampleCode: "module 0x1::hello {\n    public entry fun main() {\n        let x = 42;\n        debug::print(&x);\n    }\n}" },
-  { name: "Perl", ext: ".pm", phase: 6, paradigm: "Practical Extraction & Scripting", glowColor: "gold", sampleCode: "use strict;\nmy $x = 42;\nprint $x;" }
+  { name: "Perl", ext: ".pm", phase: 6, paradigm: "Practical Extraction & Scripting", glowColor: "gold", sampleCode: "use strict;\nmy $x = 42;\nprint $x;" },
+  { name: "Visual Basic", ext: ".vb", phase: 3, paradigm: "Event-Driven Rapid App", glowColor: "purple", sampleCode: "Module Program\n    Sub Main()\n        Console.WriteLine(\"Hello from VB!\")\n    End Sub\nEnd Module" },
+  { name: "Delphi", ext: ".delphi", phase: 3, paradigm: "Object Pascal Native", glowColor: "purple", sampleCode: "program HelloDelphi;\nbegin\n    Writeln('Hello from Delphi!');\nend." },
+  { name: "PowerShell", ext: ".ps1", phase: 6, paradigm: "Object-Oriented Scripting", glowColor: "cyan", sampleCode: "Write-Host \"Hello, Rosetta from PowerShell!\"" },
+  { name: "Arduino", ext: ".ino", phase: 5, paradigm: "Embedded Systems C++", glowColor: "cyan", sampleCode: "void setup() {\n    Serial.begin(9600);\n}\nvoid loop() {}" },
+  { name: "Matlab", ext: ".matlab", phase: 6, paradigm: "Matrix & Technical Numerical", glowColor: "cyan", sampleCode: "A = [1 2; 3 4];\nv = [1; 0];\ndisp(A * v);" },
+  { name: "VBA", ext: ".vba", phase: 3, paradigm: "Office Automation & Event-Driven", glowColor: "purple", sampleCode: "Sub RosettaGreet()\n    MsgBox \"Hello from VBA!\"\nEnd Sub" },
+  { name: "Assembly", ext: ".asm", phase: 3, paradigm: "Low-Level Machine Code", glowColor: "gold", sampleCode: "global _start\nsection .text\n_start:\n    mov rax, 60\n    syscall" },
+  { name: "HCL", ext: ".tf", phase: 6, paradigm: "Declarative Infrastructure-as-Code", glowColor: "purple", sampleCode: "variable \"region\" {\n  default = \"us-east-1\"\n}" },
+  { name: "GraphQL", ext: ".gql", phase: 6, paradigm: "Declarative Schema & Query Language", glowColor: "green", sampleCode: "type Query {\n  languages: [String!]!\n}" }
 ];
 
 export async function GET() {

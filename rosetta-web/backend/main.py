@@ -233,6 +233,26 @@ LANGUAGE_CATALOG: List[LanguageInfo] = [
         name="Perl", ext=".pm", phase=6, paradigm="Practical Extraction & Scripting",
         glowColor="gold", sampleCode="use strict;\nuse warnings;\n\nmy $message = 'Hello, Rosetta!';\nprint $message, \"\\n\";"
     ),
+    LanguageInfo(
+        name="Matlab", ext=".matlab", phase=6, paradigm="Matrix & Technical Numerical",
+        glowColor="cyan", sampleCode="% Rosetta Matrix Transpilation\nA = [1 2; 3 4];\nv = [1; 0];\ndisp(A * v);"
+    ),
+    LanguageInfo(
+        name="VBA", ext=".vba", phase=3, paradigm="Office Automation & Event-Driven",
+        glowColor="purple", sampleCode="Sub RosettaGreet()\n    MsgBox \"Hello, Rosetta from VBA!\"\nEnd Sub"
+    ),
+    LanguageInfo(
+        name="Assembly", ext=".asm", phase=3, paradigm="Low-Level Architecture Machine Code",
+        glowColor="gold", sampleCode="global _start\nsection .text\n_start:\n    mov rax, 60\n    mov rdi, 0\n    syscall"
+    ),
+    LanguageInfo(
+        name="HCL", ext=".tf", phase=6, paradigm="Declarative Infrastructure-as-Code",
+        glowColor="purple", sampleCode="variable \"service_name\" {\n  type    = string\n  default = \"rosetta-cluster\"\n}"
+    ),
+    LanguageInfo(
+        name="GraphQL", ext=".gql", phase=6, paradigm="Declarative Schema & Query Language",
+        glowColor="green", sampleCode="type Query {\n  compilerStatus: String!\n  supportedLanguages: [String!]!\n}"
+    ),
 ]
 
 @app.get("/")
@@ -340,6 +360,30 @@ def post_detect(payload: DetectRequest):
         return DetectResponse(language=res["language"], confidence=res["confidence"])
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/transpile")
+def get_transpile():
+    """
+    Rosetta Transpile API status and discovery endpoint.
+    """
+    return {
+        "status": "online",
+        "service": "ROSETTA Fast AST Engine",
+        "method": "POST",
+        "message": "Send a POST request with {source, from_lang, to_lang} to compile code in real-time.",
+        "usage": {
+            "endpoint": "/api/transpile",
+            "method": "POST",
+            "headers": {"Content-Type": "application/json"},
+            "example_payload": {
+                "source": "public class Main { public static void main(String[] args) { System.out.println(\"Hello World!\"); } }",
+                "from_lang": "java",
+                "to_lang": "py"
+            }
+        },
+        "docs": "/docs",
+        "health": "/api/health"
+    }
 
 @app.post("/api/transpile", response_model=TranspileResponse)
 def post_transpile(payload: TranspileRequest):

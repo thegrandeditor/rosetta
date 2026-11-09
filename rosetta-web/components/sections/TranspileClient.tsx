@@ -61,7 +61,12 @@ const LANGUAGES: LanguageOption[] = [
   { name: "SQL", ext: ".sql", phase: 6, type: "both" },
   { name: "Objective-C", ext: ".m", phase: 6, type: "both" },
   { name: "Move", ext: ".move", phase: 6, type: "both" },
-  { name: "Perl", ext: ".pm", phase: 6, type: "both" }
+  { name: "Perl", ext: ".pm", phase: 6, type: "both" },
+  { name: "Matlab", ext: ".matlab", phase: 6, type: "both" },
+  { name: "VBA", ext: ".vba", phase: 3, type: "both" },
+  { name: "Assembly", ext: ".asm", phase: 3, type: "both" },
+  { name: "HCL", ext: ".tf", phase: 6, type: "both" },
+  { name: "GraphQL", ext: ".gql", phase: 6, type: "both" }
 ];
 
 const SAMPLE_CODES: Record<string, { ext: string; code: string; target: string }> = {

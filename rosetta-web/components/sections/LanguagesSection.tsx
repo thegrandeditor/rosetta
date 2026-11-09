@@ -60,7 +60,12 @@ const CATALOG_LANGUAGES: LanguageCardData[] = [
   { name: "SQL", ext: ".sql", phase: 6, paradigm: "Relational / Procedural", type: "Database" },
   { name: "Objective-C", ext: ".m", phase: 6, paradigm: "Smalltalk OOP", type: "Mobile" },
   { name: "Move", ext: ".move", phase: 6, paradigm: "Smart Contracts", type: "Blockchain" },
-  { name: "Perl", ext: ".pm", phase: 6, paradigm: "Text & Scripting", type: "Scripting" }
+  { name: "Perl", ext: ".pm", phase: 6, paradigm: "Text & Scripting", type: "Scripting" },
+  { name: "Matlab", ext: ".matlab", phase: 6, paradigm: "Matrix Numerical", type: "Scientific" },
+  { name: "VBA", ext: ".vba", phase: 3, paradigm: "Office Automation", type: "Enterprise" },
+  { name: "Assembly", ext: ".asm", phase: 3, paradigm: "Machine Code", type: "Systems" },
+  { name: "HCL", ext: ".tf", phase: 6, paradigm: "Infrastructure-as-Code", type: "DevOps" },
+  { name: "GraphQL", ext: ".gql", phase: 6, paradigm: "Schema / Query", type: "Web" }
 ];
 
 export default function LanguagesSection() {

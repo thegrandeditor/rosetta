@@ -62,7 +62,12 @@ const LANGUAGES: LanguageOption[] = [
   { name: "SQL", ext: ".sql", phase: 6, badgeColor: "bg-[#F3EDE2] text-[#44403C] border-[#D6CFC2]", type: "both" },
   { name: "Objective-C", ext: ".m", phase: 6, badgeColor: "bg-[#F40009]/10 text-[#F40009] border-[#F40009]/25", type: "both" },
   { name: "Move", ext: ".move", phase: 6, badgeColor: "bg-[#F40009]/10 text-[#F40009] border-[#F40009]/25", type: "both" },
-  { name: "Perl", ext: ".pm", phase: 6, badgeColor: "bg-[#F3EDE2] text-[#44403C] border-[#D6CFC2]", type: "both" }
+  { name: "Perl", ext: ".pm", phase: 6, badgeColor: "bg-[#F3EDE2] text-[#44403C] border-[#D6CFC2]", type: "both" },
+  { name: "Matlab", ext: ".matlab", phase: 6, badgeColor: "bg-[#F40009]/10 text-[#F40009] border-[#F40009]/25", type: "both" },
+  { name: "VBA", ext: ".vba", phase: 3, badgeColor: "bg-[#F3EDE2] text-[#44403C] border-[#D6CFC2]", type: "both" },
+  { name: "Assembly", ext: ".asm", phase: 3, badgeColor: "bg-[#F3EDE2] text-[#44403C] border-[#D6CFC2]", type: "both" },
+  { name: "HCL", ext: ".tf", phase: 6, badgeColor: "bg-[#F3EDE2] text-[#44403C] border-[#D6CFC2]", type: "both" },
+  { name: "GraphQL", ext: ".gql", phase: 6, badgeColor: "bg-[#F40009]/10 text-[#F40009] border-[#F40009]/25", type: "both" }
 ];
 
 const SAMPLE_CODES: Record<string, { ext: string; code: string; target: string }> = {

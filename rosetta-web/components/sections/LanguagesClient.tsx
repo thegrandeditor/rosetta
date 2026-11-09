@@ -360,6 +360,41 @@ const CATALOG_DETAILS: LanguageDetail[] = [
     strengths: ["Regular expressions", "System scripting", "Text parsing"],
     sources: ["Python", "Ruby", "Bash"],
     targets: ["Python", "Bash"]
+  },
+  {
+    name: "Matlab", ext: ".matlab", phase: 6, paradigm: "Matrix Numerical", type: "Scientific",
+    description: "Matrix-based numerical computing platform used widely in engineering, aerospace, robotics, and scientific research.",
+    strengths: ["Matrix operations", "DSP algorithms", "Simulation modeling"],
+    sources: ["Python", "C++", "Fortran"],
+    targets: ["Python", "Julia", "Rust"]
+  },
+  {
+    name: "VBA", ext: ".vba", phase: 3, paradigm: "Office Automation", type: "Enterprise",
+    description: "Visual Basic for Applications powering millions of mission-critical enterprise spreadsheets and desktop automation.",
+    strengths: ["Office API integration", "Rapid macro scripting", "Legacy finance models"],
+    sources: ["Visual Basic", "COBOL"],
+    targets: ["Python", "TypeScript", "C#"]
+  },
+  {
+    name: "Assembly", ext: ".asm", phase: 3, paradigm: "Machine Code", type: "Systems",
+    description: "Low-level symbolic machine instructions offering precise, bare-metal hardware control across x86, ARM, and RISC-V.",
+    strengths: ["Zero abstraction overhead", "Register level control", "Direct hardware access"],
+    sources: ["C", "C++"],
+    targets: ["C", "Rust", "Zig"]
+  },
+  {
+    name: "HCL", ext: ".tf", phase: 6, paradigm: "Infrastructure-as-Code", type: "DevOps",
+    description: "HashiCorp Configuration Language for provisioning cloud infrastructure through declarative Terraform declarations.",
+    strengths: ["Declarative cloud provisioning", "State consistency", "Module composability"],
+    sources: ["JSON", "YAML"],
+    targets: ["TypeScript", "Python"]
+  },
+  {
+    name: "GraphQL", ext: ".gql", phase: 6, paradigm: "Schema / Query", type: "Web",
+    description: "Declarative data query and manipulation language for APIs providing clients with exact data contracts.",
+    strengths: ["Exact payload fetching", "Strict typed schema", "Single endpoint routing"],
+    sources: ["TypeScript", "JSON"],
+    targets: ["TypeScript", "Rust", "Go"]
   }
 ];
 
@@ -397,7 +432,7 @@ export default function LanguagesClient() {
             UNIVERSAL LANGUAGE MATRIX
           </div>
           <h1 className="font-space font-extrabold text-4xl md:text-5xl tracking-tight text-[#141413]">
-            45+ Universal <span className="text-[#F40009]">Languages</span>
+            50+ Universal <span className="text-[#F40009]">Languages</span>
           </h1>
           <p className="mt-3 text-[#57534E] font-sans text-sm md:text-base">
             Rosetta's universal language matrix spans modern, enterprise, legacy, scientific, systems, and smart contracts — with continuous runtime auto-learning.
