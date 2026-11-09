@@ -111,8 +111,14 @@ FRONTENDS: dict[str, type] = {
     ".fortran":    FortranFrontend,
     ".bas":        BasicFrontend,
     ".basic":      BasicFrontend,
+    ".vb":         BasicFrontend,
+    ".vba":        BasicFrontend,
+    ".vbs":        BasicFrontend,
     ".pas":        PascalFrontend,
     ".pascal":     PascalFrontend,
+    ".delphi":     PascalFrontend,
+    ".ino":        CppFrontend,
+    ".gs":         JavaScriptFrontend,
     ".adb":        AdaFrontend,
     ".ads":        AdaFrontend,
     ".ada":        AdaFrontend,
@@ -176,8 +182,14 @@ BACKENDS: dict[str, type] = {
     "f90":        FortranBackend,
     "basic":      BasicBackend,
     "bas":        BasicBackend,
+    "vb":         BasicBackend,
+    "vba":        BasicBackend,
+    "visualbasic":BasicBackend,
     "pascal":     PascalBackend,
     "pas":        PascalBackend,
+    "delphi":     PascalBackend,
+    "arduino":    CppBackend,
+    "ino":        CppBackend,
     "ada":        AdaBackend,
     "adb":        AdaBackend,
     "lisp":       LispBackend,
@@ -216,6 +228,10 @@ from rosetta.babel.universal.frontends import UNIVERSAL_FRONTENDS  # noqa: E402
 from rosetta.cipher.universal.backends import UNIVERSAL_BACKENDS  # noqa: E402
 
 FRONTENDS.update(UNIVERSAL_FRONTENDS)
+FRONTENDS.update({
+    ".ps1": UNIVERSAL_FRONTENDS[".sh"],
+    ".powershell": UNIVERSAL_FRONTENDS[".sh"],
+})
 BACKENDS.update(UNIVERSAL_BACKENDS)
 BACKENDS.update({
     "cs": UNIVERSAL_BACKENDS["csharp"],
@@ -224,6 +240,9 @@ BACKENDS.update({
     "hs": UNIVERSAL_BACKENDS["haskell"],
     "ex": UNIVERSAL_BACKENDS["elixir"],
     "sh": UNIVERSAL_BACKENDS["bash"],
+    "shell": UNIVERSAL_BACKENDS["bash"],
+    "powershell": UNIVERSAL_BACKENDS["bash"],
+    "ps1": UNIVERSAL_BACKENDS["bash"],
     "tsql": UNIVERSAL_BACKENDS["sql"],
     "objective-c": UNIVERSAL_BACKENDS["objc"],
     "m": UNIVERSAL_BACKENDS["objc"],
