@@ -8,7 +8,10 @@ if sys.platform == "win32":
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
-from mcp.server.fastmcp import FastMCP
+try:
+    from mcp.server.fastmcp import FastMCP
+except ImportError:
+    FastMCP = None
 
 from rosetta.ir.nodes import Program
 from rosetta.cli.resolver import get_frontend, get_backend, LEGACY_EXTENSIONS, FRONTENDS, BACKENDS
@@ -23,7 +26,17 @@ from rosetta.hermes.passes.standard_passes import (
     MemorySafetyNormalizationPass,
 )
 
-mcp = FastMCP("ROSETTA Universal Transpiler")
+if FastMCP is not None:
+    mcp = FastMCP("ROSETTA Universal Transpiler")
+else:
+    class _MockMCP:
+        def tool(self):
+            def decorator(f):
+                return f
+            return decorator
+        def run(self):
+            pass
+    mcp = _MockMCP()
 
 
 def serialize_ir_node(node) -> dict | list | str | int | float | bool | None:

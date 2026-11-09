@@ -7,7 +7,7 @@ from pathlib import Path
 
 # Dynamic injection of Rosetta root path
 _DEFAULT_ROOT = str(Path(__file__).resolve().parent.parent.parent)
-ROSETTA_ROOT = os.environ.get("ROSETTA_ROOT", _DEFAULT_ROOT)
+ROSETTA_ROOT = os.environ.get("ROSETTA_ROOT", "/app" if os.path.exists("/app/rosetta") else _DEFAULT_ROOT)
 if ROSETTA_ROOT not in sys.path:
     sys.path.insert(0, ROSETTA_ROOT)
 
@@ -17,7 +17,11 @@ try:
         inspect_ir as engine_inspect_ir,
         get_supported_languages as engine_get_languages,
     )
-except ImportError:
+    print(f"[rosetta_bridge] Successfully loaded Rosetta engine from {ROSETTA_ROOT}!")
+except Exception as e:
+    import traceback
+    print(f"[rosetta_bridge] WARNING: Failed to import rosetta engine: {e}", file=sys.stderr)
+    traceback.print_exc()
     engine_transpile = None
     engine_inspect_ir = None
     engine_get_languages = None
