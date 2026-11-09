@@ -172,6 +172,12 @@ export default function RootLayout({
                   45+ Languages
                 </Link>
                 <Link 
+                  href="/benchmarks" 
+                  className="font-space text-sm font-medium text-[#57534E] hover:text-[#141413] transition-colors"
+                >
+                  Benchmarks
+                </Link>
+                <Link 
                   href="/docs" 
                   className="font-space text-sm font-semibold text-[#F40009] hover:text-[#b80007] transition-colors"
                 >
@@ -231,6 +237,7 @@ export default function RootLayout({
             </div>
             <div className="flex items-center gap-4 flex-wrap justify-center">
               <span className="text-[#141413] font-medium">One Engine. Every Language. Zero Limits.</span>
+              <Link href="/benchmarks" className="hover:underline">Benchmarks</Link>
               <Link href="/faq" className="hover:underline">FAQ</Link>
               <Link href="/support" className="hover:underline">Support</Link>
               <Link href="/docs" className="hover:underline">Docs</Link>
