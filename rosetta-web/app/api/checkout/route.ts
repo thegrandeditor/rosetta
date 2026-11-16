@@ -77,8 +77,8 @@ export async function POST(req: NextRequest) {
                 redirect_url: `${origin}/billing-success?tier=${tier}&status=success`,
               },
               relationships: {
-                store: { data: { type: "stores", id: lsStoreId } },
-                variant: { data: { type: "variants", id: variantId } }
+                store: { data: { type: "stores", id: String(lsStoreId) } },
+                variant: { data: { type: "variants", id: String(variantId) } }
               }
             }
           })
